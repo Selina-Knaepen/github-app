@@ -9,6 +9,7 @@ import { RepoService } from '../../services/repo/repo.service'
 })
 export class RepoListComponent implements OnInit {
   login: string|null = null;
+  repos: any;
 
   constructor(private route: ActivatedRoute, private repoService: RepoService) { }
 
@@ -18,7 +19,7 @@ export class RepoListComponent implements OnInit {
     if (this.login !== null) {
       this.repoService.getReposFromUser(this.login)
       .subscribe(repos => {
-        console.log(repos);
+        this.repos = repos;
       });
     }
   }
