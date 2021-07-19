@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, ParamMap } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
+import { RepoService } from '../../services/repo/repo.service'
 
 @Component({
   selector: 'app-repo-list',
@@ -7,13 +8,18 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
   styleUrls: ['./repo-list.component.css']
 })
 export class RepoListComponent implements OnInit {
-  login: string|null = "";
+  login: string|null = null;
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, private repoService: RepoService) { }
 
   ngOnInit(): void {
     this.login = this.route.snapshot.paramMap.get('login');
 
-    
+    if (this.login !== null) {
+      this.repoService.getReposFromUser(this.login)
+      .subscribe(repos => {
+        console.log(repos);
+      });
+    }
   }
 }
