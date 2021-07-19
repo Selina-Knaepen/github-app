@@ -4,6 +4,7 @@ import { UserSearchComponent } from './components/user-search/user-search.compon
 import { RepoListComponent } from './components/repo-list/repo-list.component';
 
 const routes: Routes = [
+  { path: '', redirectTo: '/user-search', pathMatch: 'full' },
   { path: 'user-search', component: UserSearchComponent },
   { path: 'repo-list', component: RepoListComponent }
 ];
