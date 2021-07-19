@@ -6,19 +6,25 @@ import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { UserSearchComponent } from './components/user-search/user-search.component';
+import { AppRoutingModule } from './app-routing.module';
+import { RepoListComponent } from './components/repo-list/repo-list.component';
+import { RepoService } from './services/repo/repo.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    UserSearchComponent
+    UserSearchComponent,
+    RepoListComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    AppRoutingModule
   ],
   providers: [
-    UserService
+    UserService,
+    RepoService
   ],
   bootstrap: [AppComponent]
 })
