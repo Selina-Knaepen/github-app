@@ -6,7 +6,7 @@ import { Author } from '../../models/author.model';
 
 @Injectable()
 export class CommitService {
-  apiUrl = "https://api.github.com/users";
+  apiUrl = "https://api.github.com/repos";
 
   constructor(private http: HttpClient) { }
 
@@ -20,7 +20,7 @@ export class CommitService {
     let commits = [];
 
     for (let object of json) {
-      commits.push(this.mapCommit(json.commit, json.sha));
+      commits.push(this.mapCommit(object.commit, object.sha));
     }
 
     return commits;
