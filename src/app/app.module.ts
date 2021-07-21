@@ -11,13 +11,15 @@ import { RepoListComponent } from './components/repo-list/repo-list.component';
 import { RepoService } from './services/repo/repo.service';
 import { CommitListComponent } from './components/commit-list/commit-list.component';
 import { CommitService } from './services/commit/commit.service';
+import { CommitSearchComponent } from './components/commit-search/commit-search.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UserSearchComponent,
     RepoListComponent,
-    CommitListComponent
+    CommitListComponent,
+    CommitSearchComponent
   ],
   imports: [
     BrowserModule,
