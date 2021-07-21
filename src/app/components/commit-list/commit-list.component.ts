@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CommitService } from '../../services/commit/commit.service';
-import { CommitSearchComponent } from '../commit-search/commit-search.component';
  
 @Component({
   selector: 'app-commit-list',

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CommitService } from '../../services/commit/commit.service';
 
 @Component({
   selector: 'app-commit-search',
@@ -8,12 +9,15 @@ import { Component, OnInit } from '@angular/core';
 export class CommitSearchComponent implements OnInit {
   commitTerm: string = "";
 
-  constructor() { }
+  constructor(private commitService: CommitService) { }
 
   ngOnInit(): void {
   }
 
   search() {
-    console.log("Searching for: " + this.commitTerm);
+    this.commitService.getCommitByTerm("Selina-Knaepen", "HomeLight", this.commitTerm)
+    .subscribe(commits => {
+      console.log(commits);
+    });
   }
 }
