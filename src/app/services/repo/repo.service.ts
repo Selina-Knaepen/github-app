@@ -16,7 +16,8 @@ export class RepoService {
   }
 
   mapRepoList(json: any) {
-    let repos = []
+    let repos = [];
+
     for(let object of json) {
       repos.push(this.mapRepo(object));
     }
