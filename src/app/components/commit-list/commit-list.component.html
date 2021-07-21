@@ -1,1 +1,6 @@
+<app-commit-search
+    [login]="login"
+    [repo]="repoName"
+    (onCommitsUpdated)="updateCommits($event)">
+</app-commit-search>
 <p *ngFor="let commit of commits">{{commit.message}}</p>
