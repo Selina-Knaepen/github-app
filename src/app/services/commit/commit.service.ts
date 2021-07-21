@@ -23,7 +23,7 @@ export class CommitService {
       })
     };
 
-    return this.http.get(`${this.apiUrl}/search/commits?q=repo:${user}/${repo}+${term.replace(/ /g,"+")}`, 
+    return this.http.get(`${this.apiUrl}/search/commits?per_page&q=repo:${user}/${repo}+${term.replace(/ /g,"+")}`, 
     httpOptions).pipe(
       map((res: any) => this.mapCommitList(res.items))
     );

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { CommitService } from '../../services/commit/commit.service';
 
 @Component({
@@ -8,6 +8,12 @@ import { CommitService } from '../../services/commit/commit.service';
 })
 export class CommitSearchComponent implements OnInit {
   commitTerm: string = "";
+  @Input()
+  login!: string|null;
+  @Input()
+  repo!: string|null;
+  @Output()
+  onCommitsUpdated = new EventEmitter<any>();
 
   constructor(private commitService: CommitService) { }
 
@@ -15,9 +21,11 @@ export class CommitSearchComponent implements OnInit {
   }
 
   search() {
-    this.commitService.getCommitByTerm("Selina-Knaepen", "HomeLight", this.commitTerm)
-    .subscribe(commits => {
-      console.log(commits);
-    });
+    if (this.login !== null && this.repo !== null) {
+      this.commitService.getCommitByTerm(this.login, this.repo, this.commitTerm)
+      .subscribe(commits => {
+        this.onCommitsUpdated.emit(commits);
+      });
+    }
   }
 }

@@ -26,4 +26,7 @@ export class CommitListComponent implements OnInit {
     }
   }
 
+  updateCommits(commits: any) {
+    this.commits = commits;
+  }
 }
