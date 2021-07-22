@@ -1,6 +1,5 @@
 import { TestBed } from '@angular/core/testing';
 import { HttpClientModule } from '@angular/common/http';
-
 import { UserService } from './user.service';
 import { User } from 'src/app/models/user.model';
 import { of } from 'rxjs';
@@ -27,7 +26,7 @@ describe('UserService', () => {
     expect(service).toBeTruthy();
   });
 
-  it('should return expected user and call HttpClient once', (done: DoneFn) => {
+  it('getUser should return expected user', (done: DoneFn) => {
     const expectedUser: User = new User(1, "Selina", "Selina Knaepen", "url");
     
     httpClientSpy.get.and.returnValue(of(expectedUser));
