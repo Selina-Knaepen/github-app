@@ -27,6 +27,12 @@ export class RepoService {
     );
   }
 
+  getReposSortByUpdated(user: string) {
+    return this.http.get(`${this.apiUrl}/search/repositories?sort=updated&q=user:${user}`).pipe(
+      map((res: any) => this.mapRepoList(res))
+    );
+  }
+
   mapRepoList(json: any) {
     let repos = [];
 
