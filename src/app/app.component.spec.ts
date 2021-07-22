@@ -1,5 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { RouterModule } from '@angular/router'
+import { AppRoutingModule } from './app-routing.module';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
@@ -7,6 +9,10 @@ describe('AppComponent', () => {
       declarations: [
         AppComponent
       ],
+      imports: [
+        RouterModule,
+        AppRoutingModule
+      ]
     }).compileComponents();
   });
 
@@ -20,12 +26,5 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
     expect(app.title).toEqual('github-app');
-  });
-
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('github-app app is running!');
   });
 });

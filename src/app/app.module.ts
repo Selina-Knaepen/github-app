@@ -29,7 +29,7 @@ import { RepoFilterComponent } from './components/repo-filter/repo-filter.compon
     HttpClientModule,
     FormsModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [
     UserService,
