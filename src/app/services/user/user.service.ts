@@ -15,7 +15,7 @@ export class UserService {
     );
   }
 
-  mapUser(json: any) {
+  private mapUser(json: any) {
     let user = new User(json.id, json.login, json.name, json.avatar_url);
 
     return user;
