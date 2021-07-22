@@ -1,1 +1,7 @@
-<p>repo-filter works!</p>
+<label>Filter by: </label>
+<select [(ngModel)]="selectedFilter" (ngModelChange)="valueChanged($event)">
+    <option *ngFor="let filter of filterOptions" [ngValue]="filter">
+        {{filter}}
+    </option>
+</select>
+

@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { UserService } from './services/user/user.service';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { UserSearchComponent } from './components/user-search/user-search.component';
@@ -21,13 +21,15 @@ import { RepoFilterComponent } from './components/repo-filter/repo-filter.compon
     RepoListComponent,
     CommitListComponent,
     CommitSearchComponent,
-    RepoFilterComponent
+    RepoFilterComponent,
+    
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [
     UserService,
