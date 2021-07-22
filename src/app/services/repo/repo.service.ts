@@ -16,7 +16,15 @@ export class RepoService {
   }
 
   getReposSortByStars(user: string) {
-    return this.http.get(`${this.apiUrl}/search/repositories?sort=stars&q=user:${user}`)
+    return this.http.get(`${this.apiUrl}/search/repositories?sort=stars&q=user:${user}`).pipe(
+      map((res: any) => this.mapRepoList(res))
+    );
+  }
+
+  getReposSortByName(user: string) {
+    return this.http.get(`${this.apiUrl}/search/repositories?sort=name&order=asc&q=user:${user}`).pipe(
+      map((res: any) => this.mapRepoList(res))
+    );
   }
 
   mapRepoList(json: any) {
