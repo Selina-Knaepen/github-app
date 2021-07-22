@@ -28,4 +28,8 @@ export class RepoListComponent implements OnInit {
   showCommits(name: string) {
     this.router.navigate(['/commit-list', {login: this.login, repoName: name}]);
   }
+
+  updateRepos(repos: any) {
+    this.repos = repos;
+  }
 }
