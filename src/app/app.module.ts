@@ -12,6 +12,7 @@ import { RepoService } from './services/repo/repo.service';
 import { CommitListComponent } from './components/commit-list/commit-list.component';
 import { CommitService } from './services/commit/commit.service';
 import { CommitSearchComponent } from './components/commit-search/commit-search.component';
+import { RepoFilterComponent } from './components/repo-filter/repo-filter.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { CommitSearchComponent } from './components/commit-search/commit-search.
     UserSearchComponent,
     RepoListComponent,
     CommitListComponent,
-    CommitSearchComponent
+    CommitSearchComponent,
+    RepoFilterComponent
   ],
   imports: [
     BrowserModule,

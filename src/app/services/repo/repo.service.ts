@@ -5,14 +5,18 @@ import { Repo } from '../../models/repo.model';
 
 @Injectable()
 export class RepoService {
-  apiUrl = "https://api.github.com/users";
+  apiUrl = "https://api.github.com";
 
   constructor(private http: HttpClient) { }
 
   getReposFromUser(user: string) {
-    return this.http.get(`${this.apiUrl}/${user}/repos`).pipe(
+    return this.http.get(`${this.apiUrl}/users/${user}/repos?per_page=20`).pipe(
       map((res: any) => this.mapRepoList(res))
     );
+  }
+
+  getReposSortByStars(user: string) {
+    return this.http.get(`${this.apiUrl}/search/repositories?sort=stars&q=user:${user}`)
   }
 
   mapRepoList(json: any) {
