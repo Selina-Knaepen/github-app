@@ -6,7 +6,7 @@ import { of } from 'rxjs';
 
 describe('RepoService', () => {
   let service: RepoService;
-  let httpClientSpy: { get: jasmine.Spy }
+  let httpClientSpy: { get: jasmine.Spy };
 
   beforeEach(() => {
     TestBed.configureTestingModule({
