@@ -1,2 +1,5 @@
-<app-repo-filter></app-repo-filter>
+<app-repo-filter 
+    [login]="login"
+    (onReposUpdated)="updateRepos($event)">
+</app-repo-filter>
 <p *ngFor="let repo of repos" (click)="showCommits(repo.name)">{{repo.name}}</p>

@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { RepoService } from '../../services/repo/repo.service';
 
 @Component({
   selector: 'app-repo-filter',
@@ -10,26 +11,42 @@ export class RepoFilterComponent implements OnInit {
   selectedFilter!: string;
   @Input()
   login!: string|null;
+  @Output()
+  onReposUpdated = new EventEmitter<any>();
 
-  constructor() { }
+  constructor(private repoService: RepoService) { }
 
   ngOnInit(): void {
-    this.valueChanged(this.filterOptions[0]);
+    this.selectedFilter = this.filterOptions[0];
   }
 
   valueChanged(filter: any) {
     this.selectedFilter = filter;
 
-    switch (this.selectedFilter) {
-      case "Name":
-        break;
-      case "Stars":
-        break;
-      case "Updated":
-        break;
-      default:
-        console.log("No filter has been given")
-        break;
+    if (this.login !== null) {
+      switch (this.selectedFilter) {
+        case "Name":
+          this.repoService.getReposFromUser(this.login)
+          .subscribe(repos => {
+            this.onReposUpdated.emit(repos);
+          });
+          break;
+        case "Stars":
+          this.repoService.getReposSortByStars(this.login)
+          .subscribe(repos => {
+            this.onReposUpdated.emit(repos);
+          });
+          break;
+        case "Updated":
+          this.repoService.getReposSortByUpdated(this.login)
+          .subscribe(repos => {
+            this.onReposUpdated.emit(repos);
+          });
+          break;
+        default:
+          console.log("No filter has been given")
+          break;
+      }
     }
   }
 }
