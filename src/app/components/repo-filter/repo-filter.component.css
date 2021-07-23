@@ -1,0 +1,6 @@
+select {
+    width: 150px;
+    padding: 5px;
+    background-color: rgb(236, 236, 236);
+    border-radius: 5px;
+}

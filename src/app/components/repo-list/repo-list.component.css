@@ -1,0 +1,42 @@
+#item {
+    margin-top: 20px;
+}
+
+#description {
+    font-size: 12px;
+    margin-top: 0;
+    margin-left: 3%;
+}
+
+#star {
+    width: 100px;
+    border: 1px solid gray;
+    margin-left: 3%;
+    border-radius: 5px;
+    padding: 5px;
+    background-color: rgb(236, 236, 236);
+}
+
+app-repo-filter {
+    margin-left: 1%;
+}
+
+
+p {
+    margin-left: 2%;
+}
+
+hr {
+    opacity: 0.1;
+}
+
+img {
+    width: 20px;
+    height: 20px;
+    margin-left: 5%;
+
+}
+
+label {
+    margin-left: 5px;
+}

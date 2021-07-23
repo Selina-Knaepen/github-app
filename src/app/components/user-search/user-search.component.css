@@ -1,0 +1,33 @@
+div {
+    display: flexbox;
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    align-content: center;
+}
+
+#item {
+    display: table;
+    margin: 0 auto;
+}
+
+img {
+    width: 250px;
+    height: 250px;
+    
+}
+
+h2 {
+    margin-bottom: 10px !important;
+}
+
+input {
+    width: 500px;
+    padding: 5px 10px 5px 10px;
+}
+
+button {
+    width: 150px;
+    padding: 5px;
+}
