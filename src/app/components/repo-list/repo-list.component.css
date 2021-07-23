@@ -1,7 +1,3 @@
-app-repo-filter {
-    margin-left: 1%;
-}
-
 #item {
     margin-top: 20px;
 }
@@ -20,6 +16,11 @@ app-repo-filter {
     padding: 5px;
     background-color: rgb(236, 236, 236);
 }
+
+app-repo-filter {
+    margin-left: 1%;
+}
+
 
 p {
     margin-left: 2%;

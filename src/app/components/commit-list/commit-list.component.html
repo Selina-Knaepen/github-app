@@ -1,6 +1,14 @@
-<app-commit-search
-    [login]="login"
-    [repo]="repoName"
-    (onCommitsUpdated)="updateCommits($event)">
-</app-commit-search>
-<p *ngFor="let commit of commits">{{commit.message}}</p>
+<div>
+    <h3>Commits for {{repoName}}</h3>
+    <app-commit-search
+        [login]="login"
+        [repo]="repoName"
+        (onCommitsUpdated)="updateCommits($event)">
+    </app-commit-search>
+
+    <div *ngFor="let commit of commits">
+        <p id="message">{{commit.message}}</p>
+        <p id="author"><span>Author:</span> {{commit.author.name}}</p>
+        <hr>
+    </div>
+</div>
