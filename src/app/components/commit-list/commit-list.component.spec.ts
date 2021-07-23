@@ -9,7 +9,6 @@ import { Author } from 'src/app/models/author.model';
 describe('CommitListComponent', () => {
   let component: CommitListComponent;
   let fixture: ComponentFixture<CommitListComponent>;
-  let activatedRouteSpy: {get: jasmine.Spy} = jasmine.createSpyObj('ActivatedRoute', ['get']);
   let commitServiceStub: Partial<CommitService> = {
     getCommitsFromRepo: function() {
       return of([new Commit("sha1", "Initial Commit", new Author("Selina", new Date("07-22-2021"))),

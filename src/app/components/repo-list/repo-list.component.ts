@@ -15,7 +15,7 @@ export class RepoListComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit(): void {
-    this.login = this.route.snapshot.paramMap.get('login');
+    this.login = this.route.snapshot.params['login'];
 
     if (this.login !== null) {
       this.repoService.getReposFromUser(this.login)
