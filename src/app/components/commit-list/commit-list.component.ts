@@ -15,8 +15,8 @@ export class CommitListComponent implements OnInit {
   constructor(private route: ActivatedRoute, private commitService: CommitService) { }
 
   ngOnInit(): void {
-    this.login = this.route.snapshot.paramMap.get('login');
-    this.repoName = this.route.snapshot.paramMap.get('repoName');
+    this.login = this.route.snapshot.params['login'];
+    this.repoName = this.route.snapshot.params['repoName'];
 
     if (this.login !== null && this.repoName !== null) {
       this.commitService.getCommitsFromRepo(this.login, this.repoName)
