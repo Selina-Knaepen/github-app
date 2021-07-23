@@ -1,6 +1,7 @@
 <div>
     <img id="item" src="../../../assets/github.png"/>
     <h2 id="item">Github-App</h2>
-    <input id="item" [(ngModel)]="searchUser" placeholder="Username"/><br>
+    <p *ngIf="hasError">Invalid username</p>
+    <input id="item" [(ngModel)]="searchUser" placeholder="Username" [style.border-color]="hasError ? 'red' : 'lightgray'"/><br>
     <button id="item" type="submit" (click)="search()">Search user</button>
 </div>
