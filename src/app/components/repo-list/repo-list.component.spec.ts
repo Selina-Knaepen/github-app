@@ -21,7 +21,7 @@ describe('RepoListComponent', () => {
       return of([new Repo(1, "HomeLight", "Lights", 0),
       new Repo(2, "Mongoose", "Bot", 2)])
     }
-  }
+  };
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
