@@ -25,9 +25,17 @@ h2 {
 input {
     width: 500px;
     padding: 5px 10px 5px 10px;
+    border-radius: 5px;
 }
 
 button {
     width: 150px;
     padding: 5px;
+}
+
+p {
+    color: red;
+    font-size: 12px;
+    margin-left: 1%;
+    margin-top: 0px;
 }

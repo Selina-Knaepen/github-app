@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../services/user/user.service';
 import { Router } from '@angular/router';
+import { User } from 'src/app/models/user.model';
 
 @Component({
   selector: 'app-user-search',
@@ -9,7 +10,8 @@ import { Router } from '@angular/router';
 })
 export class UserSearchComponent implements OnInit {
   searchUser: string = "";
-  user: any;
+  user!: User|string;
+  hasError = false;
 
   constructor(private userService: UserService, private router: Router) { }
 
@@ -18,9 +20,14 @@ export class UserSearchComponent implements OnInit {
   search(): void {
     this.userService.getUser(this.searchUser)
     .subscribe(user => {
-      console.log(user);
       this.user = user;
-      this.router.navigate(['/repo-list', { login: user.login }]);
-    })
+
+      if (user instanceof User) {
+        this.hasError = false;
+        this.router.navigate(['/repo-list', { login: user.login }]);
+      } else {
+        this.hasError = true;
+      }
+    });
   }
 }
