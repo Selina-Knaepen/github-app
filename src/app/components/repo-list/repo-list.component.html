@@ -1,5 +1,16 @@
-<app-repo-filter 
-    [login]="login"
-    (onReposUpdated)="updateRepos($event)">
-</app-repo-filter>
-<p *ngFor="let repo of repos" (click)="showCommits(repo.name)">{{repo.name}}</p>
+<div>
+    <h3>Repository list for {{login}}</h3>
+    <app-repo-filter 
+        [login]="login"
+        (onReposUpdated)="updateRepos($event)">
+    </app-repo-filter>
+    <div id="item" *ngFor="let repo of repos" (click)="showCommits(repo.name)">
+        <p>{{repo.name}}</p>
+        <p id="description">{{repo.description}}</p>
+        <div id="star">
+            <img src="../../../assets/star.png"/>
+            <label>stars: {{repo.stargazers_count}}</label>
+        </div>
+        <hr>
+    </div>
+</div>
